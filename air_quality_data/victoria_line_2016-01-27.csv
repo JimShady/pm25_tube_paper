@@ -1,0 +1,21 @@
+﻿line, station, start_time, end_time, environment, sub_environment, fake_id
+Victoria, Euston, 2016-01-27 15:59:00, 2016-01-27 15:59:00, tube, shelf, 1
+Victoria, Kings Cross St. Pancras, 2016-01-27 16:00:00, 2016-01-27 16:00:00, tube, shelf, 2
+Victoria, Highbury & Islington, 2016-01-27 16:03:00, 2016-01-27 16:03:00, tube, shelf, 3
+Victoria, Finsbury Park, 2016-01-27 16:05:00, 2016-01-27 16:05:00, tube, shelf, 4
+Victoria, Seven Sisters, 2016-01-27 16:09:00, 2016-01-27 16:09:00, tube, shelf, 5
+Victoria, Tottenham Hale, 2016-01-27 16:13:00, 2016-01-27 16:13:00, tube, shelf, 6
+Victoria, Blackhorse Road, 2016-01-27 16:15:00, 2016-01-27 16:15:00, tube, shelf, 7
+Victoria, Walthamstow Central, 2016-01-27 16:17:00, 2016-01-27 16:17:00, tube, shelf, 8
+Victoria, Walthamstow Central, 2016-01-27 16:18:00, 2016-01-27 16:18:00, tube, shelf, 8
+Victoria, Walthamstow Central, 2016-01-27 16:19:00, 2016-01-27 16:19:00, tube, shelf, 8
+Victoria, Blackhorse Road, 2016-01-27 16:21:00, 2016-01-27 16:21:00, tube, shelf, 9
+Victoria, Tottenham Hale, 2016-01-27 16:23:00, 2016-01-27 16:23:00, tube, shelf, 10
+Victoria, Seven Sisters, 2016-01-27 16:24:00, 2016-01-27 16:24:00, tube, shelf, 11
+Victoria, Finsbury Park, 2016-01-27 16:28:00, 2016-01-27 16:28:00, tube, shelf, 12
+Victoria, Highbury & Islington, 2016-01-27 16:30:00, 2016-01-27 16:30:00, tube, shelf, 13
+Victoria, Kings Cross St. Pancras, 2016-01-27 16:33:00, 2016-01-27 16:33:00, tube, shelf, 14
+Victoria, Euston, 2016-01-27 16:35:00, 2016-01-27 16:35:00, tube, shelf, 15
+Victoria, Warren Street, 2016-01-27 16:36:00, 2016-01-27 16:36:00, tube, shelf, 16
+Victoria, Oxford Circus, 2016-01-27 16:38:00, 2016-01-27 16:38:00, tube, shelf, 17
+Victoria, Oxford Circus, 2016-01-27 16:39:00, 2016-01-27 16:40:00, platform, floor, 18

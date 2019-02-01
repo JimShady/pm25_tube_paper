@@ -1,0 +1,22 @@
+---
+title: "London Underground exposure animations"
+author: "James David Smith"
+output: html_document
+---
+
+```{r}
+library(tidyverse, quietly = T)
+library(sf,        quietly = T)
+library(gganimate, quietly = T)
+```
+
+```{r}
+diary      <- read_csv('air_quality_data/victoria_line_2016-01-27.csv')
+
+air_quality <- read_csv('air_quality_data/LUexportMay2016.csv') %>%
+                rename_all(tolower) %>%
+                mutate(datetime = as.POSIXct(datetime, format='%d/%m/%Y %H:%M'))
+
+diary %>% left_join(air_quality, by = c('start_time' = 'datetime'))
+
+```
