@@ -1,0 +1,33 @@
+﻿line, station,start_time, end_time, environment, sub_environment, fake_id
+Victoria,Brixton,2014-12-08 09:03:00,2014-12-08 09:24:00,platform,floor,1
+Victoria,Brixton,2014-12-08 09:25:00,2014-12-08 09:25:00,tube,floor,2
+Victoria,Stockwell,2014-12-08 09:29:00,2014-12-08 09:29:00,tube,floor,3
+Victoria,Vauxhall,2014-12-08 09:31:00,2014-12-08 09:31:00,tube,floor,4
+Victoria,Pimlico,2014-12-08 09:33:00,2014-12-08 09:33:00,tube,floor,5
+Victoria,Victoria,2014-12-08 09:35:00,2014-12-08 09:35:00,tube,floor,6
+Victoria,Green Park,2014-12-08 09:37:00,2014-12-08 09:37:00,tube,floor,7
+Victoria,Oxford Circus,2014-12-08 09:40:00,2014-12-08 09:40:00,tube,floor,8
+Victoria,Warren Street,2014-12-08 09:42:00,2014-12-08 09:42:00,tube,floor,9
+Victoria,Euston,2014-12-08 09:43:00,2014-12-08 09:43:00,tube,floor,10
+Victoria,Kings Cross St. Pancras,2014-12-08 09:45:00,2014-12-08 09:45:00,tube,floor,11
+Victoria,Highbury & Islington,2014-12-08 09:48:00,2014-12-08 09:48:00,tube,floor,12
+Victoria,Finsbury Park,2014-12-08 09:51:00,2014-12-08 09:51:00,tube,floor,13
+Victoria,Seven Sisters,2014-12-08 09:54:00,2014-12-08 09:54:00,tube,floor,14
+Victoria,Seven Sisters,2014-12-08 09:55:00,2014-12-08 10:01:00,platform,floor,15
+Victoria,Seven Sisters,2014-12-08 10:02:00,2014-12-08 10:02:00,tube,floor,16
+Victoria,Finsbury Park,2014-12-08 10:05:00,2014-12-08 10:05:00,tube,floor,17
+Victoria,Highbury & Islington,2014-12-08 10:08:00,2014-12-08 10:08:00,tube,floor,18
+Victoria,Kings Cross St. Pancras,2014-12-08 10:10:00,2014-12-08 10:10:00,tube,floor,19
+Victoria,Euston,2014-12-08 10:13:00,2014-12-08 10:13:00,tube,floor,20
+Victoria,Euston,2014-12-08 10:13:00,2014-12-08 10:13:00,tube,floor,20
+Victoria,Warren Street,2014-12-08 10:14:00,2014-12-08 10:14:00,tube,floor,21
+Victoria,Oxford Circus,2014-12-08 10:16:00,2014-12-08 10:16:00,tube,floor,22
+Victoria,Green Park,2014-12-08 10:18:00,2014-12-08 10:18:00,tube,floor,23
+Victoria,Victoria,2014-12-08 10:20:00,2014-12-08 10:20:00,tube,floor,24
+Victoria,Victoria,2014-12-08 10:21:00,2014-12-08 10:25:00,platform,floor,25
+Victoria,Victoria,2014-12-08 10:26:00,2014-12-08 10:26:00,tube,floor,26
+Victoria,Pimlico,2014-12-08 10:28:00,2014-12-08 10:28:00,tube,floor,27
+Victoria,Vauxhall,2014-12-08 10:29:00,2014-12-08 10:29:00,tube,floor,28
+Victoria,Stockwell,2014-12-08 10:33:00,2014-12-08 10:33:00,tube,floor,29
+Victoria,Brixton,2014-12-08 10:39:00,2014-12-08 10:39:00,tube,floor,30
+Victoria,Brixton,2014-12-08 10:40:00,2014-12-08 10:40:00,platform,floor,31
