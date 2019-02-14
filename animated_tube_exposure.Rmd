@@ -4,7 +4,7 @@ author: "James David Smith"
 output: html_document
 ---
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 rm(list = ls())
 cat("\014")
 
@@ -22,7 +22,7 @@ library(magick,    quietly = T)
 
 Import the time-activity diary for the line and tidy it up.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 diary      <- read_csv('air_quality_data/victoria_line_2014-12-08.csv', col_types = cols())
 
 base       <- tibble(date_time = seq(min(diary$start_time), max(diary$end_time), by = 'min'))
@@ -45,7 +45,7 @@ rm(diary)
 
 Import the measured air quality to join to the time-activity diary
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 air_quality <- read_csv('air_quality_data/LUexportMay2016.csv', col_types = cols()) %>%
                 rename_all(tolower) %>%
                 mutate(datetime = as.POSIXct(datetime, format='%d/%m/%Y %H:%M')) %>%
@@ -53,7 +53,7 @@ air_quality <- read_csv('air_quality_data/LUexportMay2016.csv', col_types = cols
 ```
 
 Join the time activity and air quality
-```{r}
+```{r, warning=FALSE, message=FALSE}
 line       <-  left_join(base, air_quality, by = c('date_time' = 'datetime')) %>% 
                 mutate(scaledvalue = if_else(species == 'PM25', value, scaledvalue)) %>%
                 select(-value) %>%
@@ -64,7 +64,7 @@ rm(air_quality, base)
 
 Import the background air quality for that day to correct the PM2.5 measurements
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 background_pm25 <- importKCL(site = "kc1", year = c(2014,2015,2016), pollutant = "pm25", met = FALSE,
                              units = "mass", extra = FALSE)
 background_pm25 <- data.frame(background_pm25, day = as.Date(format(background_pm25$date)))
@@ -73,7 +73,7 @@ background_pm25 <- aggregate(pm25 ~ day, background_pm25, mean)
 
 Join the background PM2.5 to the monitored concentrations
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 line     <-    mutate(line, day = date(date_time)) %>%
                 left_join(background_pm25, by = c('day' = 'day')) %>%
@@ -83,7 +83,7 @@ line     <-    mutate(line, day = date(date_time)) %>%
 
 Correct the PM2.5 data
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 line <-         mutate(line, concentration = 
                          case_when(concentration >  pm25/0.44 & species == 'PM25' & !is.na(concentration) ~ pm25 + (1.82 * (concentration - (pm25/0.44))),
@@ -95,7 +95,7 @@ line <-         mutate(line, concentration =
 
 Get the station locations
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 stations <- st_read('https://raw.githubusercontent.com/dracos/underground-live-map/master/bin/stations.kml', quiet = T) %>%
             select(-Description) %>%
@@ -109,7 +109,7 @@ stations <- st_read('https://raw.githubusercontent.com/dracos/underground-live-m
 
 Join locations to the concentrations and station names
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 line   <-left_join(line, stations, by = c('station' = 'name')) %>% st_as_sf()
 
@@ -117,7 +117,7 @@ line   <-left_join(line, stations, by = c('station' = 'name')) %>% st_as_sf()
 
 Fill in the missing coordinates using linear interpolation
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 st_geometry(line) <- as_tibble(st_coordinates(line)) %>% 
                       mutate(X = na.approx(X), Y = na.approx(Y)) %>% 
@@ -129,7 +129,7 @@ st_geometry(line) <- as_tibble(st_coordinates(line)) %>%
 Start trying to animate. First the graph animation.
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 text_placement <- filter(line,species == 'PM25') %>%
                     as_tibble() %>%
@@ -173,12 +173,14 @@ graph <- ggplot(data = filter(line,species == 'PM25')) +
 graph_animation <- animate(graph, fps = 3, height = 600, renderer = gifski_renderer(loop = FALSE))
 anim_save(file='graph_animation.gif', animation = graph_animation, path = 'outputs')
 
+graph_animation
+
 
 ```
 
 Now the spatial animation.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 line <- st_set_crs(line,4326)
 
 map_area <- c(as.vector(st_bbox(line))[1]-0.01, as.vector(st_bbox(line))[2]-0.01, as.vector(st_bbox(line))[3]+0.01, as.vector(st_bbox(line))[4]+0.01)
@@ -197,5 +199,7 @@ map <-  ggmap(get_map(location = map_area), source = "google", maptype = "roadma
 map_animation  <- animate(map, fps = 3, height = (470*2), width = (200*2))
 
 anim_save(file='map_animation.gif', animation = map_animation, path = 'outputs')
+
+map_animation
 
 ```
